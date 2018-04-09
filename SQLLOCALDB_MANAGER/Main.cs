@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Security.Principal;
@@ -24,11 +17,11 @@ namespace SQLLOCALDB_MANAGER
                 WindowsPrincipal principal = new WindowsPrincipal(user);
                 isAdmin = principal.IsInRole(WindowsBuiltInRole.Administrator);
             }
-            catch (UnauthorizedAccessException ex)
+            catch (UnauthorizedAccessException)
             {
                 isAdmin = false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 isAdmin = false;
             }
@@ -65,14 +58,21 @@ namespace SQLLOCALDB_MANAGER
         {
             string DataPath = Path.GetDirectoryName(Directory.Text);
             string DatabaseName = Path.GetFileNameWithoutExtension(Directory.Text);
-            LocalDB.MAKE_DATABASE(DatabaseName,DataPath);
+            string instanceName = instanceNameTextbox.Text;
+            LocalDB.MAKE_DATABASE(DatabaseName,DataPath,instanceName);
+        }
+
+        public void OutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
+        {
+            Console.WriteLine(outLine.Data);
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            string instanceName = TextBoxInstanceNameGestion.Text;
             Process proc = new Process();
             proc.StartInfo.FileName = "CMD.exe";
-            proc.StartInfo.Arguments = "/c sqllocaldb create EBP";
+            proc.StartInfo.Arguments = "/c sqllocaldb create "+instanceName+"";
             proc.StartInfo.UseShellExecute = false;
             proc.StartInfo.RedirectStandardOutput = true;
             proc.StartInfo.RedirectStandardError = true;
@@ -84,17 +84,14 @@ namespace SQLLOCALDB_MANAGER
             textBox_Read.Text = output;
             proc.WaitForExit();
             Refresh();
-        }
-        public void OutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
-        {
-            Console.WriteLine(outLine.Data);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            string instanceName = TextBoxInstanceNameGestion.Text;
             Process proc = new Process();
             proc.StartInfo.FileName = "CMD.exe";
-            proc.StartInfo.Arguments = "/c sqllocaldb start EBP";
+            proc.StartInfo.Arguments = "/c sqllocaldb start "+instanceName+"";
             proc.StartInfo.UseShellExecute = false;
             proc.StartInfo.RedirectStandardOutput = true;
             proc.StartInfo.RedirectStandardError = true;
@@ -106,17 +103,14 @@ namespace SQLLOCALDB_MANAGER
             textBox_Read.Text = output;
             proc.WaitForExit();
             Refresh();
-        }
-        public void OutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
-        {
-            Console.WriteLine(outLine.Data);
         }
 
         private void btnInfos_Click(object sender, EventArgs e)
         {
+            string instanceName = TextBoxInstanceNameGestion.Text;
             Process proc = new Process();
             proc.StartInfo.FileName = "CMD.exe";
-            proc.StartInfo.Arguments = "/c sqllocaldb info EBP";
+            proc.StartInfo.Arguments = "/c sqllocaldb info "+instanceName+"";
             proc.StartInfo.UseShellExecute = false;
             proc.StartInfo.RedirectStandardOutput = true;
             proc.StartInfo.RedirectStandardError = true;
@@ -129,18 +123,13 @@ namespace SQLLOCALDB_MANAGER
             proc.WaitForExit();
             Refresh();
         }
-        public void OutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
-        {
-            Console.WriteLine(outLine.Data);
-        }
-
-
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+            string instanceName = TextBoxInstanceNameGestion.Text;
             Process proc = new Process();
             proc.StartInfo.FileName = "CMD.exe";
-            proc.StartInfo.Arguments = "/c sqllocaldb stop EBP";
+            proc.StartInfo.Arguments = "/c sqllocaldb stop "+instanceName+"";
             proc.StartInfo.UseShellExecute = false;
             proc.StartInfo.RedirectStandardOutput = true;
             proc.StartInfo.RedirectStandardError = true;
@@ -152,17 +141,14 @@ namespace SQLLOCALDB_MANAGER
             textBox_Read.Text = output;
             proc.WaitForExit();
             Refresh();
-        }
-        public void OutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
-        {
-            Console.WriteLine(outLine.Data);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            string instanceName = TextBoxInstanceNameGestion.Text;
             Process proc = new Process();
             proc.StartInfo.FileName = "CMD.exe";
-            proc.StartInfo.Arguments = "/c sqllocaldb delete EBP";
+            proc.StartInfo.Arguments = "/c sqllocaldb delete "+instanceName+"";
             proc.StartInfo.UseShellExecute = false;
             proc.StartInfo.RedirectStandardOutput = true;
             proc.StartInfo.RedirectStandardError = true;
@@ -174,10 +160,6 @@ namespace SQLLOCALDB_MANAGER
             textBox_Read.Text = output;
             proc.WaitForExit();
             Refresh();
-        }
-        public void OutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
-        {
-            Console.WriteLine(outLine.Data);
         }
     }
 }

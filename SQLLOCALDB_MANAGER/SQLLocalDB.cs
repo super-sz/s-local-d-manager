@@ -6,11 +6,11 @@ namespace SQLLOCALDB_MANAGER
 {
     static class LocalDB
     {
-        public static void MAKE_DATABASE(string dbName, string Path)
+        public static void MAKE_DATABASE(string dbName, string Path, string instanceName)
         {
             try
             {
-                string connectionString = String.Format("Data Source=(LocalDB)\\EBP;Integrated Security=SSPI;Trusted_Connection=yes;");
+                string connectionString = String.Format("Data Source=(LocalDB)\\"+instanceName+";Integrated Security=SSPI;Trusted_Connection=yes;");
                 using (var connection = new SqlConnection(connectionString))
                 {
                     SqlCommand cmd = new SqlCommand("", connection);

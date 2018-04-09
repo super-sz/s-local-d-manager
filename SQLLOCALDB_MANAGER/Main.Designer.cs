@@ -41,6 +41,11 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.textBox_Read = new System.Windows.Forms.TextBox();
+            this.instanceNameTextbox = new System.Windows.Forms.TextBox();
+            this.SQLLocalDBInstanceNameLabel = new System.Windows.Forms.Label();
+            this.SeparateMiddle = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TextBoxInstanceNameGestion = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -49,9 +54,9 @@
             this.TitleLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TitleLabel.Location = new System.Drawing.Point(10, 10);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(152, 15);
+            this.TitleLabel.Size = new System.Drawing.Size(129, 15);
             this.TitleLabel.TabIndex = 0;
-            this.TitleLabel.Text = "EBP SQL Local DB Manager";
+            this.TitleLabel.Text = "SQL Local DB Manager";
             // 
             // label1
             // 
@@ -60,10 +65,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label1.Location = new System.Drawing.Point(10, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(470, 15);
+            this.label1.Size = new System.Drawing.Size(392, 15);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Gestion des bases de données et de l\'état de l\'instance pour SQL Local DB (Instan" +
-    "ce EBP)";
+            this.label1.Text = "Gestion des bases de données et de l\'état de l\'instance pour SQL Local DB\r\n";
             // 
             // HeaderSeperator
             // 
@@ -102,9 +106,9 @@
             // 
             // AttachDatabase
             // 
-            this.AttachDatabase.Location = new System.Drawing.Point(457, 126);
+            this.AttachDatabase.Location = new System.Drawing.Point(456, 138);
             this.AttachDatabase.Name = "AttachDatabase";
-            this.AttachDatabase.Size = new System.Drawing.Size(245, 27);
+            this.AttachDatabase.Size = new System.Drawing.Size(245, 25);
             this.AttachDatabase.TabIndex = 6;
             this.AttachDatabase.Text = "Attacher la base de données au serveur";
             this.AttachDatabase.UseVisualStyleBackColor = true;
@@ -112,7 +116,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(278, 159);
+            this.btnCreate.Location = new System.Drawing.Point(281, 222);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(75, 23);
             this.btnCreate.TabIndex = 10;
@@ -122,7 +126,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(360, 159);
+            this.btnStart.Location = new System.Drawing.Point(361, 222);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 11;
@@ -132,7 +136,7 @@
             // 
             // btnInfos
             // 
-            this.btnInfos.Location = new System.Drawing.Point(442, 159);
+            this.btnInfos.Location = new System.Drawing.Point(442, 222);
             this.btnInfos.Name = "btnInfos";
             this.btnInfos.Size = new System.Drawing.Size(97, 23);
             this.btnInfos.TabIndex = 12;
@@ -142,7 +146,7 @@
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(545, 159);
+            this.btnStop.Location = new System.Drawing.Point(545, 222);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 23);
             this.btnStop.TabIndex = 13;
@@ -152,7 +156,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(627, 159);
+            this.btnDelete.Location = new System.Drawing.Point(625, 222);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 14;
@@ -162,13 +166,56 @@
             // 
             // textBox_Read
             // 
-            this.textBox_Read.Location = new System.Drawing.Point(13, 188);
+            this.textBox_Read.Location = new System.Drawing.Point(13, 263);
             this.textBox_Read.Multiline = true;
             this.textBox_Read.Name = "textBox_Read";
             this.textBox_Read.ReadOnly = true;
             this.textBox_Read.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_Read.Size = new System.Drawing.Size(689, 261);
+            this.textBox_Read.Size = new System.Drawing.Size(687, 186);
             this.textBox_Read.TabIndex = 15;
+            // 
+            // instanceNameTextbox
+            // 
+            this.instanceNameTextbox.Location = new System.Drawing.Point(14, 139);
+            this.instanceNameTextbox.Name = "instanceNameTextbox";
+            this.instanceNameTextbox.Size = new System.Drawing.Size(436, 23);
+            this.instanceNameTextbox.TabIndex = 16;
+            // 
+            // SQLLocalDBInstanceNameLabel
+            // 
+            this.SQLLocalDBInstanceNameLabel.AutoSize = true;
+            this.SQLLocalDBInstanceNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SQLLocalDBInstanceNameLabel.Location = new System.Drawing.Point(10, 119);
+            this.SQLLocalDBInstanceNameLabel.Name = "SQLLocalDBInstanceNameLabel";
+            this.SQLLocalDBInstanceNameLabel.Size = new System.Drawing.Size(179, 15);
+            this.SQLLocalDBInstanceNameLabel.TabIndex = 17;
+            this.SQLLocalDBInstanceNameLabel.Text = "Nom de l\'Instance SQL Local DB";
+            // 
+            // SeparateMiddle
+            // 
+            this.SeparateMiddle.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.SeparateMiddle.Location = new System.Drawing.Point(-19, 183);
+            this.SeparateMiddle.Name = "SeparateMiddle";
+            this.SeparateMiddle.Size = new System.Drawing.Size(743, 1);
+            this.SeparateMiddle.TabIndex = 18;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(10, 198);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(192, 15);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Gestion de l\'Instance SQL Local DB";
+            // 
+            // TextBoxInstanceNameGestion
+            // 
+            this.TextBoxInstanceNameGestion.Location = new System.Drawing.Point(13, 222);
+            this.TextBoxInstanceNameGestion.Name = "TextBoxInstanceNameGestion";
+            this.TextBoxInstanceNameGestion.Size = new System.Drawing.Size(262, 23);
+            this.TextBoxInstanceNameGestion.TabIndex = 19;
+            this.TextBoxInstanceNameGestion.Text = "MSSQLLocalDB";
             // 
             // Main
             // 
@@ -176,6 +223,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(714, 461);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.TextBoxInstanceNameGestion);
+            this.Controls.Add(this.SeparateMiddle);
+            this.Controls.Add(this.SQLLocalDBInstanceNameLabel);
+            this.Controls.Add(this.instanceNameTextbox);
             this.Controls.Add(this.textBox_Read);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnStop);
@@ -193,7 +245,7 @@
             this.MaximumSize = new System.Drawing.Size(730, 500);
             this.MinimumSize = new System.Drawing.Size(730, 500);
             this.Name = "Main";
-            this.Text = "EBP SQL Local DB Manager";
+            this.Text = "SQL Local DB Manager";
             this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -215,6 +267,11 @@
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox textBox_Read;
+        private System.Windows.Forms.TextBox instanceNameTextbox;
+        private System.Windows.Forms.Label SQLLocalDBInstanceNameLabel;
+        private System.Windows.Forms.Panel SeparateMiddle;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TextBoxInstanceNameGestion;
     }
 }
 
