@@ -73,16 +73,15 @@ namespace SQLLOCALDB_MANAGER
             Process proc = new Process();
             proc.StartInfo.FileName = "CMD.exe";
             proc.StartInfo.Arguments = "/c sqllocaldb "+args+" " + instanceName + "";
+            proc.StartInfo.CreateNoWindow = true;
             proc.StartInfo.UseShellExecute = false;
+            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
             proc.StartInfo.RedirectStandardOutput = true;
             proc.StartInfo.RedirectStandardError = true;
             proc.ErrorDataReceived += new DataReceivedEventHandler(OutputHandler);
             proc.Start();
-            proc.StartInfo.CreateNoWindow = true;
-            proc.StartInfo.UseShellExecute = false;
             proc.BeginErrorReadLine();
-            string output = proc.StandardOutput.ReadToEnd();
-            textBox_Read.Text = output;
+            textBox_Read.Text = proc.StandardOutput.ReadToEnd();
             proc.WaitForExit();
             Refresh();
         }
