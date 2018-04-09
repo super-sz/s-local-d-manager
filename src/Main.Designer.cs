@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.TitleLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.HeaderSeperator = new System.Windows.Forms.Panel();
@@ -242,6 +243,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TitleLabel);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(730, 500);
             this.MinimumSize = new System.Drawing.Size(730, 500);
             this.Name = "Main";
