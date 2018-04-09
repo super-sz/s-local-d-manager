@@ -20,21 +20,21 @@ namespace SQLLOCALDB_MANAGER
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
                     connection.Dispose();
-                    MessageBox.Show("La base de données a été attachée avec succès.", "Opération effectuée");
+                    MessageBox.Show(Strings.successAttachment, Strings.successAttachmentTitle);
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Impossible d'attacher la base de données au serveur SQL." + Environment.NewLine + "L'erreur suivante est survenue lors de la tentative de rattachement :" + Environment.NewLine + "" + Environment.NewLine + ""+ex.Message+"", "Une erreur est survenue lors du rattachement de la base de données", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Strings.cannotAttachFileCatch + ex.Message, Strings.cannotAttachFileCatchTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public static void InstanceNameError()
         {
-            MessageBox.Show(Environment.NewLine + "Veuillez entrer le nom de l'instance SQL Local DB.","L'instance n'a pas été sélectionnée", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(Strings.selectInstanceMessage,Strings.selectInstanceMessageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         public static void FileNotExist()
         {
-            MessageBox.Show("Impossible d'attacher la base de données au serveur SQL." + Environment.NewLine + "Veuillez sélectionner un fichier de base de données existant.", "Le fichier mdf est introuvable", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(Strings.fileNotExists, Strings.fileNotExistsTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

@@ -43,9 +43,9 @@ namespace SQLLOCALDB_MANAGER
         private void BrowseDirectory_Click(object sender, EventArgs e)
         {
             OpenFileDialog fdlg = new OpenFileDialog();
-            fdlg.Title = "Sélection du fichier MDF à attacher";
+            fdlg.Title = Strings.selectFileDialog;
             fdlg.InitialDirectory = DATABASE_PATH;
-            fdlg.Filter = "Fichiers MDF (*.mdf)|*.mdf|Tous les fichiers (*.*)|*.*";
+            fdlg.Filter = Strings.selectFileFilters;
             fdlg.FilterIndex = 1;
             fdlg.RestoreDirectory = true;
             if (fdlg.ShowDialog() == DialogResult.OK)
