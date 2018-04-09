@@ -1,0 +1,17 @@
+C:\xampp\htdocs\dev-sources\c#-dev-sources\tools-for-work\EBP-sqlLocalDbManager\SQLLOCALDB_MANAGER\bin\Debug\SQLLOCALDB_MANAGER.exe.config
+C:\xampp\htdocs\dev-sources\c#-dev-sources\tools-for-work\EBP-sqlLocalDbManager\SQLLOCALDB_MANAGER\bin\Debug\SQLLOCALDB_MANAGER.exe
+C:\xampp\htdocs\dev-sources\c#-dev-sources\tools-for-work\EBP-sqlLocalDbManager\SQLLOCALDB_MANAGER\bin\Debug\SQLLOCALDB_MANAGER.pdb
+C:\xampp\htdocs\dev-sources\c#-dev-sources\tools-for-work\EBP-sqlLocalDbManager\SQLLOCALDB_MANAGER\obj\Debug\SQLLOCALDB_MANAGER.Main.resources
+C:\xampp\htdocs\dev-sources\c#-dev-sources\tools-for-work\EBP-sqlLocalDbManager\SQLLOCALDB_MANAGER\obj\Debug\SQLLOCALDB_MANAGER.Properties.Resources.resources
+C:\xampp\htdocs\dev-sources\c#-dev-sources\tools-for-work\EBP-sqlLocalDbManager\SQLLOCALDB_MANAGER\obj\Debug\SQLLOCALDB_MANAGER.csproj.GenerateResource.Cache
+C:\xampp\htdocs\dev-sources\c#-dev-sources\tools-for-work\EBP-sqlLocalDbManager\SQLLOCALDB_MANAGER\obj\Debug\SQLLOCALDB_MANAGER.exe
+C:\xampp\htdocs\dev-sources\c#-dev-sources\tools-for-work\EBP-sqlLocalDbManager\SQLLOCALDB_MANAGER\obj\Debug\SQLLOCALDB_MANAGER.pdb
+C:\Users\yann.peutin\Documents\Visual Studio 2017\Projects\SQLLOCALDB_MANAGER\SQLLOCALDB_MANAGER\bin\Debug\SQLLOCALDB_MANAGER.exe.config
+C:\Users\yann.peutin\Documents\Visual Studio 2017\Projects\SQLLOCALDB_MANAGER\SQLLOCALDB_MANAGER\bin\Debug\SQLLOCALDB_MANAGER.exe
+C:\Users\yann.peutin\Documents\Visual Studio 2017\Projects\SQLLOCALDB_MANAGER\SQLLOCALDB_MANAGER\bin\Debug\SQLLOCALDB_MANAGER.pdb
+C:\Users\yann.peutin\Documents\Visual Studio 2017\Projects\SQLLOCALDB_MANAGER\SQLLOCALDB_MANAGER\obj\Debug\SQLLOCALDB_MANAGER.Main.resources
+C:\Users\yann.peutin\Documents\Visual Studio 2017\Projects\SQLLOCALDB_MANAGER\SQLLOCALDB_MANAGER\obj\Debug\SQLLOCALDB_MANAGER.Properties.Resources.resources
+C:\Users\yann.peutin\Documents\Visual Studio 2017\Projects\SQLLOCALDB_MANAGER\SQLLOCALDB_MANAGER\obj\Debug\SQLLOCALDB_MANAGER.csproj.GenerateResource.Cache
+C:\Users\yann.peutin\Documents\Visual Studio 2017\Projects\SQLLOCALDB_MANAGER\SQLLOCALDB_MANAGER\obj\Debug\SQLLOCALDB_MANAGER.exe
+C:\Users\yann.peutin\Documents\Visual Studio 2017\Projects\SQLLOCALDB_MANAGER\SQLLOCALDB_MANAGER\obj\Debug\SQLLOCALDB_MANAGER.pdb
+C:\Users\yann.peutin\Documents\Visual Studio 2017\Projects\SQLLOCALDB_MANAGER\SQLLOCALDB_MANAGER\obj\Debug\SQLLOCALDB_MANAGER.csprojResolveAssemblyReference.cache
