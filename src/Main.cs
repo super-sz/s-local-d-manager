@@ -56,10 +56,19 @@ namespace SQLLOCALDB_MANAGER
 
         private void AttachDatabase_Click(object sender, EventArgs e)
         {
-            string DataPath = Path.GetDirectoryName(Directory.Text);
-            string DatabaseName = Path.GetFileNameWithoutExtension(Directory.Text);
+            string DataFullPath = Directory.Text;
+            string DataPath = Path.GetDirectoryName(DataFullPath);
+            string DatabaseName = Path.GetFileNameWithoutExtension(DataFullPath);
             string instanceName = instanceNameTextbox.Text;
-            LocalDB.MAKE_DATABASE(DatabaseName,DataPath,instanceName);
+            if (instanceName.Length < 1)
+                LocalDB.InstanceNameError();
+            else
+            {
+                if (!File.Exists(DataFullPath))
+                    LocalDB.FileNotExist();
+                else
+                    LocalDB.MAKE_DATABASE(DatabaseName, DataPath, instanceName);
+            }
         }
 
         public void OutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
@@ -70,20 +79,25 @@ namespace SQLLOCALDB_MANAGER
         public void cmdExecute(string args)
         {
             string instanceName = TextBoxInstanceNameGestion.Text;
-            Process proc = new Process();
-            proc.StartInfo.FileName = "CMD.exe";
-            proc.StartInfo.Arguments = "/c sqllocaldb "+args+" " + instanceName + "";
-            proc.StartInfo.CreateNoWindow = true;
-            proc.StartInfo.UseShellExecute = false;
-            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            proc.StartInfo.RedirectStandardOutput = true;
-            proc.StartInfo.RedirectStandardError = true;
-            proc.ErrorDataReceived += new DataReceivedEventHandler(OutputHandler);
-            proc.Start();
-            proc.BeginErrorReadLine();
-            textBox_Read.Text = proc.StandardOutput.ReadToEnd();
-            proc.WaitForExit();
-            Refresh();
+            if (instanceName.Length < 1)
+                LocalDB.InstanceNameError();
+            else
+            {
+                Process proc = new Process();
+                proc.StartInfo.FileName = "CMD.exe";
+                proc.StartInfo.Arguments = "/c sqllocaldb " + args + " " + instanceName + "";
+                proc.StartInfo.CreateNoWindow = true;
+                proc.StartInfo.UseShellExecute = false;
+                proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                proc.StartInfo.RedirectStandardOutput = true;
+                proc.StartInfo.RedirectStandardError = true;
+                proc.ErrorDataReceived += new DataReceivedEventHandler(OutputHandler);
+                proc.Start();
+                proc.BeginErrorReadLine();
+                textBox_Read.Text = proc.StandardOutput.ReadToEnd();
+                proc.WaitForExit();
+                Refresh();
+            }
         }
 
         private void btnCreate_Click(object sender, EventArgs e)

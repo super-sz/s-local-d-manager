@@ -23,10 +23,18 @@ namespace SQLLOCALDB_MANAGER
                     MessageBox.Show("La base de données a été attachée avec succès.", "Opération effectuée");
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                throw;
+                MessageBox.Show("Impossible d'attacher la base de données au serveur SQL." + Environment.NewLine + "L'erreur suivante est survenue lors de la tentative de rattachement :" + Environment.NewLine + "" + Environment.NewLine + ""+ex.Message+"", "Une erreur est survenue lors du rattachement de la base de données", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        public static void InstanceNameError()
+        {
+            MessageBox.Show(Environment.NewLine + "Veuillez entrer le nom de l'instance SQL Local DB.","L'instance n'a pas été sélectionnée", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public static void FileNotExist()
+        {
+            MessageBox.Show("Impossible d'attacher la base de données au serveur SQL." + Environment.NewLine + "Veuillez sélectionner un fichier de base de données existant.", "Le fichier mdf est introuvable", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
