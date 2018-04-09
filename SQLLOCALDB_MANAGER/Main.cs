@@ -67,99 +67,49 @@ namespace SQLLOCALDB_MANAGER
             Console.WriteLine(outLine.Data);
         }
 
-        private void btnCreate_Click(object sender, EventArgs e)
+        public void cmdExecute(string args)
         {
             string instanceName = TextBoxInstanceNameGestion.Text;
             Process proc = new Process();
             proc.StartInfo.FileName = "CMD.exe";
-            proc.StartInfo.Arguments = "/c sqllocaldb create "+instanceName+"";
+            proc.StartInfo.Arguments = "/c sqllocaldb "+args+" " + instanceName + "";
             proc.StartInfo.UseShellExecute = false;
             proc.StartInfo.RedirectStandardOutput = true;
             proc.StartInfo.RedirectStandardError = true;
             proc.ErrorDataReceived += new DataReceivedEventHandler(OutputHandler);
             proc.Start();
-            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+            proc.StartInfo.CreateNoWindow = true;
+            proc.StartInfo.UseShellExecute = false;
             proc.BeginErrorReadLine();
             string output = proc.StandardOutput.ReadToEnd();
             textBox_Read.Text = output;
             proc.WaitForExit();
             Refresh();
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+            cmdExecute("create");
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            string instanceName = TextBoxInstanceNameGestion.Text;
-            Process proc = new Process();
-            proc.StartInfo.FileName = "CMD.exe";
-            proc.StartInfo.Arguments = "/c sqllocaldb start "+instanceName+"";
-            proc.StartInfo.UseShellExecute = false;
-            proc.StartInfo.RedirectStandardOutput = true;
-            proc.StartInfo.RedirectStandardError = true;
-            proc.ErrorDataReceived += new DataReceivedEventHandler(OutputHandler);
-            proc.Start();
-            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            proc.BeginErrorReadLine();
-            string output = proc.StandardOutput.ReadToEnd();
-            textBox_Read.Text = output;
-            proc.WaitForExit();
-            Refresh();
+            cmdExecute("start");
         }
 
         private void btnInfos_Click(object sender, EventArgs e)
         {
-            string instanceName = TextBoxInstanceNameGestion.Text;
-            Process proc = new Process();
-            proc.StartInfo.FileName = "CMD.exe";
-            proc.StartInfo.Arguments = "/c sqllocaldb info "+instanceName+"";
-            proc.StartInfo.UseShellExecute = false;
-            proc.StartInfo.RedirectStandardOutput = true;
-            proc.StartInfo.RedirectStandardError = true;
-            proc.ErrorDataReceived += new DataReceivedEventHandler(OutputHandler);
-            proc.Start();
-            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            proc.BeginErrorReadLine();
-            string output = proc.StandardOutput.ReadToEnd();
-            textBox_Read.Text = output;
-            proc.WaitForExit();
-            Refresh();
+            cmdExecute("info");
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            string instanceName = TextBoxInstanceNameGestion.Text;
-            Process proc = new Process();
-            proc.StartInfo.FileName = "CMD.exe";
-            proc.StartInfo.Arguments = "/c sqllocaldb stop "+instanceName+"";
-            proc.StartInfo.UseShellExecute = false;
-            proc.StartInfo.RedirectStandardOutput = true;
-            proc.StartInfo.RedirectStandardError = true;
-            proc.ErrorDataReceived += new DataReceivedEventHandler(OutputHandler);
-            proc.Start();
-            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            proc.BeginErrorReadLine();
-            string output = proc.StandardOutput.ReadToEnd();
-            textBox_Read.Text = output;
-            proc.WaitForExit();
-            Refresh();
+            cmdExecute("stop");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string instanceName = TextBoxInstanceNameGestion.Text;
-            Process proc = new Process();
-            proc.StartInfo.FileName = "CMD.exe";
-            proc.StartInfo.Arguments = "/c sqllocaldb delete "+instanceName+"";
-            proc.StartInfo.UseShellExecute = false;
-            proc.StartInfo.RedirectStandardOutput = true;
-            proc.StartInfo.RedirectStandardError = true;
-            proc.ErrorDataReceived += new DataReceivedEventHandler(OutputHandler);
-            proc.Start();
-            proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            proc.BeginErrorReadLine();
-            string output = proc.StandardOutput.ReadToEnd();
-            textBox_Read.Text = output;
-            proc.WaitForExit();
-            Refresh();
+            cmdExecute("delete");
         }
     }
 }
