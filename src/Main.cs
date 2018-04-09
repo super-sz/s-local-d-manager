@@ -79,7 +79,7 @@ namespace SQLLOCALDB_MANAGER
         public void cmdExecute(string args)
         {
             string instanceName = TextBoxInstanceNameGestion.Text;
-            if (instanceName.Length == 0)
+            if (instanceName.Length == 0 && args != "info")
                 LocalDB.InstanceNameError();
             else
             {
