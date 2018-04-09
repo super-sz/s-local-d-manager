@@ -60,7 +60,7 @@ namespace SQLLOCALDB_MANAGER
             string DataPath = Path.GetDirectoryName(DataFullPath);
             string DatabaseName = Path.GetFileNameWithoutExtension(DataFullPath);
             string instanceName = instanceNameTextbox.Text;
-            if (instanceName.Length < 1)
+            if (instanceName.Length == 0)
                 LocalDB.InstanceNameError();
             else
             {
@@ -79,7 +79,7 @@ namespace SQLLOCALDB_MANAGER
         public void cmdExecute(string args)
         {
             string instanceName = TextBoxInstanceNameGestion.Text;
-            if (instanceName.Length < 1)
+            if (instanceName.Length == 0)
                 LocalDB.InstanceNameError();
             else
             {
